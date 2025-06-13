@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { AppNavBar } from "@/components/navigation/appNavbar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/navigation/appSidebar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,11 +18,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className="h-screen flex flex-col">
+            <header className="h-min">
+                <AppNavBar />
+            </header>
+            <main className="flex relative flex-col h-full">
+                <SidebarProvider>
+                    <AppSidebar className="flex-shrink-0"/>
+                    <article className="flex-grow flex flex-col">
+                        <SidebarTrigger />
+                        <div className="flex-grow">
+                            {children}
+                        </div>
+                        <footer className="bg-sidebar flex justify-end p-3">
+                          <p>An Olingo product</p>
+                        </footer>
+                    </article>
+                </SidebarProvider>
+            </main>
+        </body>
     </html>
   );
 }
