@@ -1,4 +1,4 @@
-import { Settings, Book, Archive} from "lucide-react"
+import { Home, Settings, Book, Archive} from "lucide-react"
 import { NavigationItem } from "@/types/NavigationItem"
 const navigationItems: NavigationItem[] = [
     {

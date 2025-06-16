@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AppNavBar } from "@/components/navigation/appNavbar";
+import { AppNavBar } from "@/components/navigation/app-navbar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/navigation/appSidebar";
-
+import { AppSidebar } from "@/components/navigation/app-sidebar";
+import { Toaster } from "@/components/ui/sonner";
 
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="h-screen flex flex-col">
+      <body className="h-screen flex flex-col dark">
             <header className="h-min">
                 <AppNavBar />
             </header>
@@ -27,15 +27,15 @@ export default function RootLayout({
                     <AppSidebar className="flex-shrink-0"/>
                     <article className="flex-grow flex flex-col">
                         <SidebarTrigger />
-                        <div className="flex-grow">
-                            {children}
+                        <div className="flex-grow p-2">
+                           { children }
                         </div>
                         <footer className="bg-sidebar flex justify-end p-3">
-                          <p>An Olingo product</p>
                         </footer>
                     </article>
                 </SidebarProvider>
             </main>
+            <Toaster/>
         </body>
     </html>
   );

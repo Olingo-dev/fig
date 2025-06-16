@@ -3,11 +3,13 @@ import { cn } from "@/lib/utils"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { LogOut, Sun, User } from "lucide-react"
-import Image from 'next/image'
+import Image from "next/image";
 
 interface NavBarProps {
     className?: string
 }
+
+const SIZE = 25
 
 export function AppNavBar({ className }: NavBarProps) {
     return (
@@ -20,9 +22,9 @@ export function AppNavBar({ className }: NavBarProps) {
                     <a className="flex flex-row items-center font-olingo">
                         <Image
                             src="/fig.svg"
-                            alt="Logo"
-                            width={35}
-                            height={35}
+                            alt="Fig logo"
+                            width={SIZE}
+                            height={SIZE}
                             className="object-contain mr-3"
                         />
                         Fig
